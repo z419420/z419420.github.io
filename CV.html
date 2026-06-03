@@ -4,232 +4,294 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Timur Mirassov — CV · acme</title>
-  <link rel="stylesheet" href="../../colors_and_type.css">
   <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--fg-1); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--bg:#0D1117;--surface-1:#161B22;--surface-2:#21262D;--border:#30363D;--border-strong:#444C56;--fg-1:#F0F6FC;--fg-2:#8B949E;--fg-3:#6E7681;--accent:#3B82F6;--accent-subtle:#1C2D4D;--font-display:'Space Grotesk',-apple-system,sans-serif;--font-sans:'Inter',-apple-system,sans-serif;--ease:cubic-bezier(0.4,0,0.2,1);--dur:180ms;--r-md:10px;--r-pill:999px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--fg-1);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
 
-    /* top utility bar (screen only) */
-    .bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(13,17,23,.78); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
-    .bar .back { font-size: 14px; font-weight: 500; color: var(--fg-2); display: inline-flex; align-items: center; gap: 8px; }
-    .bar .back:hover { color: var(--fg-1); }
-    .bar .brand { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
-    .bar .brand .dot { color: var(--accent); }
-    .print-btn { font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: 8px; padding: 9px 16px; cursor: pointer; transition: background var(--dur) var(--ease); display: inline-flex; align-items: center; gap: 8px; }
-    .print-btn:hover { background: var(--accent-hover); }
-    .print-btn i { width: 16px; height: 16px; }
+/* Top bar */
+.topbar{background:rgba(13,17,23,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:56px;position:sticky;top:0;z-index:50;}
+.topbar-back{font-size:14px;font-weight:500;color:var(--fg-2);display:flex;align-items:center;gap:6px;transition:color var(--dur) var(--ease);}
+.topbar-back:hover{color:var(--fg-1);}
+.topbar-brand{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:-0.02em;}
+.topbar-brand .dot{color:var(--accent);}
 
-    .sheet { max-width: 960px; margin: 0 auto; padding: 56px 56px 80px; }
+/* Page */
+.page{max-width:900px;margin:0 auto;padding:48px 32px 80px;}
 
-    /* header */
-    .cv-head { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 36px; }
-    .cv-head .eyebrow { font-family: var(--font-display); font-size: var(--t-micro); font-weight: 600; letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent); }
-    .cv-head h1 { margin: 14px 0 6px; font-family: var(--font-display); font-size: 52px; font-weight: 700; letter-spacing: var(--ls-tight); line-height: 1.02; }
-    .cv-head .role { font-size: 19px; color: var(--fg-2); font-weight: 500; margin: 0; }
-    .contact-line { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; }
-    .contact-line span { font-size: 14px; color: var(--fg-2); display: inline-flex; align-items: center; gap: 7px; }
-    .contact-line i { width: 15px; height: 15px; color: var(--fg-3); }
+/* Header */
+.cv-header{padding-bottom:32px;border-bottom:1px solid var(--border);margin-bottom:40px;}
+.cv-eyebrow{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.cv-name{font-family:var(--font-display);font-size:52px;font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:var(--fg-1);margin-bottom:8px;}
+.cv-title{font-size:18px;color:var(--fg-2);margin-bottom:24px;}
+.cv-contacts{display:flex;flex-wrap:wrap;gap:6px 16px;}
+.cv-contact{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--fg-2);transition:color var(--dur) var(--ease);}
+.cv-contact:hover{color:var(--accent);}
+.cv-contact svg{width:15px;height:15px;flex:none;opacity:.7;}
 
-    /* body layout */
-    .cols { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
+/* Two-col layout */
+.cv-body{display:grid;grid-template-columns:1fr 280px;gap:48px;}
+@media(max-width:680px){.cv-body{grid-template-columns:1fr;}}
 
-    .sec { margin-bottom: 36px; }
-    .sec-title { font-family: var(--font-display); font-size: var(--t-micro); font-weight: 600; letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent); margin: 0 0 18px; }
+/* Section */
+.cv-section{margin-bottom:40px;}
+.cv-section-title{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
 
-    .profile { font-size: 16px; line-height: 1.7; color: var(--fg-2); margin: 0; }
-    .profile .hl { color: var(--fg-1); font-weight: 500; }
+/* Profile */
+.cv-profile{font-size:15px;line-height:1.7;color:var(--fg-2);}
 
-    /* experience */
-    .job { padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
-    .job:last-child { border-bottom: 0; margin-bottom: 0; }
-    .job-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-    .job-role { font-size: 18px; font-weight: 600; color: var(--fg-1); }
-    .job-org { color: var(--accent); font-weight: 500; }
-    .job-when { font-size: 13px; color: var(--fg-3); font-variant-numeric: tabular-nums; white-space: nowrap; flex: none; }
-    .job ul { margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .job li { position: relative; padding-left: 18px; font-size: 14.5px; line-height: 1.55; color: var(--fg-2); }
-    .job li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
+/* Experience */
+.exp-item{padding:18px 0;border-bottom:1px solid var(--border);}
+.exp-item:first-child{padding-top:0;}
+.exp-item:last-child{border-bottom:none;}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.exp-role{font-size:16px;font-weight:600;color:var(--fg-1);}
+.exp-org{font-size:14px;color:var(--accent);font-weight:500;}
+.exp-when{font-size:13px;color:var(--fg-3);white-space:nowrap;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:8px;}
+.exp-bullets li{font-size:14px;color:var(--fg-2);line-height:1.6;padding-left:14px;position:relative;}
+.exp-bullets li::before{content:"–";position:absolute;left:0;color:var(--accent);font-weight:600;}
 
-    /* sidebar */
-    .skill-group { margin-bottom: 18px; }
-    .skill-group .k { font-size: 13px; font-weight: 600; color: var(--fg-1); margin: 0 0 6px; }
-    .skill-group .v { font-size: 13.5px; line-height: 1.55; color: var(--fg-2); margin: 0; }
-    .side-line { display: flex; flex-direction: column; gap: 3px; margin-bottom: 12px; }
-    .side-line .a { font-size: 14px; font-weight: 600; color: var(--fg-1); }
-    .side-line .b { font-size: 13.5px; color: var(--fg-2); }
+/* Skills sidebar */
+.skill-group{margin-bottom:22px;}
+.skill-group-label{font-size:13px;font-weight:600;color:var(--fg-1);margin-bottom:8px;}
+.skill-group-text{font-size:13px;color:var(--fg-2);line-height:1.6;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.skill-tag{font-size:12px;font-weight:500;color:var(--fg-1);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-pill);padding:4px 10px;}
 
-    @media (max-width: 760px) {
-      .sheet { padding: 32px 24px 56px; }
-      .cv-head h1 { font-size: 38px; }
-      .cols { grid-template-columns: 1fr; gap: 8px; }
-    }
-
-    /* print: keep brand dark, drop chrome */
-    @media print {
-      @page { margin: 14mm; }
-      html, body { background: #fff; }
-      .bar { display: none; }
-      .sheet { max-width: none; padding: 0; }
-      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      body { background: var(--bg); }
-      .sheet { background: var(--bg); }
-      .job { break-inside: avoid; }
-    }
+/* Lang / edu */
+.side-item{margin-bottom:14px;}
+.side-label{font-size:13px;font-weight:600;color:var(--fg-1);margin-bottom:2px;}
+.side-val{font-size:13px;color:var(--fg-2);}
   </style>
-  <script src="https://unpkg.com/lucide@0.292.0/dist/umd/lucide.min.js"></script>
 </head>
 <body>
-  <div class="bar">
-    <a class="back" href="index.html"><i data-lucide="arrow-left"></i> Back to site</a>
-    <span class="brand">acme<span class="dot">.</span></span>
-    <button class="print-btn" onclick="window.print()"><i data-lucide="download"></i> Save PDF</button>
-  </div>
 
-  <div class="sheet">
-    <header class="cv-head">
-      <span class="eyebrow">Community &amp; Growth · Web3 · AI · Web2</span>
-      <h1>Timur Mirassov</h1>
-      <p class="role">Community &amp; Growth Manager — CIS Regional Specialist</p>
-      <div class="contact-line">
-        <span><i data-lucide="map-pin"></i> Astana, Kazakhstan</span>
-        <span><i data-lucide="mail"></i> acmetm@icloud.com</span>
-        <span><i data-lucide="send"></i> @acmetm</span>
-        <span><i data-lucide="twitter"></i> @X419420</span>
-        <span><i data-lucide="linkedin"></i> /in/acmetm</span>
-      </div>
-    </header>
+<div class="topbar">
+  <a class="topbar-back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Back to site
+  </a>
+  <span class="topbar-brand">acme<span class="dot">.</span></span>
+</div>
 
-    <div class="cols">
-      <div class="main">
-        <section class="sec">
-          <h2 class="sec-title">Profile</h2>
-          <p class="profile">
-            Web3 community builder and growth specialist with <span class="hl">4+ years</span> of hands-on
-            experience in the CIS market. Proven track record across the full spectrum of non-tech Web3 roles:
-            ambassador programs, influencer-driven growth, community operations, and event production. Deep
-            ecosystem knowledge spanning DeFi, GameFi, and SocialFi — with direct working relationships across
-            <span class="hl">Animoca Brands, Gaianet, Myx.Finance, and Binance</span>. Active CIS influencer
-            network (500+ contacts, 500–50K followers). Strong bias toward measurable outcomes.
-          </p>
-        </section>
+<div class="page">
 
-        <section class="sec">
-          <h2 class="sec-title">Work Experience</h2>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">CIS Community Ambassador · <span class="job-org">Gaianet</span></span>
-              <span class="job-when">2024 — 2025</span>
-            </div>
-            <ul>
-              <li>Owned end-to-end CIS community operations: moderated Telegram channels, led community calls, handled Q&amp;A, and delivered regular activity reports to the core team.</li>
-              <li>Organized recurring poker-format community events drawing 200–600 participants per event with project-funded prize pools.</li>
-              <li>Distributed promotional campaigns across the CIS Telegram ecosystem to drive regional user acquisition and brand awareness.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">CIS Growth &amp; Influencer Manager · <span class="job-org">Myx.Finance</span></span>
-              <span class="job-when">2024 — 2025</span>
-            </div>
-            <ul>
-              <li>Drove <strong style="color:var(--fg-1);font-weight:600">$50M+</strong> in cumulative trading volume on the Myx.Finance perp DEX through targeted CIS influencer outreach and community activation.</li>
-              <li>Coordinated with the Myx.Finance team on CIS go-to-market strategy; sourced, briefed, and managed KOL partners for product promotion.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">Web3 Community Events · <span class="job-org">Independent Producer</span></span>
-              <span class="job-when">2023 — 2025</span>
-            </div>
-            <ul>
-              <li>Produced and hosted poker-format engagement events for 10+ Web3 projects (Jumper Exchange, Succinct, and others), drawing 200–600 participants per event with project-funded prize pools.</li>
-              <li>Managed the full event lifecycle: concept, project-side coordination, participant acquisition, and post-event reporting.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">Founder, Web3 Growth Studio · <span class="job-org">Independent</span></span>
-              <span class="job-when">2022 — 2025</span>
-            </div>
-            <ul>
-              <li>Built and operated a team of 8–10 executing on-chain growth strategies across 10+ EVM networks; structured a profit-share model generating ~$10,000/month in distributed earnings.</li>
-              <li>Handled all operating costs, task allocation, quality control, and multi-wallet coordination.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">CIS Ambassador · <span class="job-org">The Sandbox (Animoca Brands)</span></span>
-              <span class="job-when">2022</span>
-            </div>
-            <ul>
-              <li>Promoted The Sandbox platform across CIS communities through events and outreach; maintained direct working relationships with the core Sandbox and Mocaverse teams.</li>
-              <li>Tracked monthly festival prize pools (250K–1.15M SAND) and communicated opportunities to the regional community.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">Community Representative (Binance Angel) · <span class="job-org">Binance</span></span>
-              <span class="job-when">2020 — 2021</span>
-            </div>
-            <ul>
-              <li>Represented Binance in CIS-region communities; moderated user chats and submitted structured product feedback to the core team focused on improving user onboarding.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">HR Specialist · <span class="job-org">Omsk Oil Refinery</span></span>
-              <span class="job-when">2019 — 2020</span>
-            </div>
-            <ul>
-              <li>Streamlined HR processes using data-driven approaches; coordinated cross-departmental projects and managed employee records.</li>
-            </ul>
-          </div>
-
-          <div class="job">
-            <div class="job-head">
-              <span class="job-role">Team Manager, Dota 2 / CS:GO · <span class="job-org">VTM Esports</span></span>
-              <span class="job-when">2015 — 2017</span>
-            </div>
-            <ul>
-              <li>Managed competitive team operations: player recruitment, opponent scouting, and tournament sourcing across 5–8 events; secured a top-2 finish.</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-
-      <aside class="side">
-        <section class="sec">
-          <h2 class="sec-title">Skills &amp; Expertise</h2>
-          <div class="skill-group"><p class="k">Community</p><p class="v">End-to-end community management, event production, moderation, onboarding, DAO coordination, community calls</p></div>
-          <div class="skill-group"><p class="k">Growth</p><p class="v">KOL / influencer outreach, CIS network (500+ contacts), Telegram growth, campaign execution, ambassador programs</p></div>
-          <div class="skill-group"><p class="k">BD</p><p class="v">Partnership proposals, go-to-market support, project-side coordination, influencer pipeline management</p></div>
-          <div class="skill-group"><p class="k">Web3</p><p class="v">DeFi, GameFi, SocialFi, perp DEX, airdrop mechanics, multi-chain (EVM, Starknet, Linea, Base, Scroll, Arbitrum)</p></div>
-          <div class="skill-group"><p class="k">Tools</p><p class="v">Telegram, Discord, Google Sheets</p></div>
-          <div class="skill-group"><p class="k">Ecosystems</p><p class="v">Animoca Brands, Gaianet, Myx.Finance, Binance, The Sandbox, Mocaverse, Jumper Exchange, Succinct</p></div>
-        </section>
-
-        <section class="sec">
-          <h2 class="sec-title">Languages</h2>
-          <div class="side-line"><span class="a">Russian</span><span class="b">Native</span></div>
-          <div class="side-line"><span class="a">English</span><span class="b">Intermediate (reading &amp; written; spoken developing)</span></div>
-        </section>
-
-        <section class="sec">
-          <h2 class="sec-title">Education</h2>
-          <div class="side-line"><span class="a">Bachelor's in Economics</span><span class="b">Specialization: Statistics · 2017 — 2020</span></div>
-        </section>
-      </aside>
+  <div class="cv-header">
+    <div class="cv-eyebrow">Community &amp; Growth · Web3 · AI · Web2</div>
+    <div class="cv-name">Timur Mirassov</div>
+    <div class="cv-title">Community &amp; Growth Manager — CIS Regional Specialist</div>
+    <div class="cv-contacts">
+      <a class="cv-contact" href="https://t.me/acmetm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        @acmetm
+      </a>
+      <a class="cv-contact" href="mailto:acmetm@icloud.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        acmetm@icloud.com
+      </a>
+      <a class="cv-contact" href="https://x.com/X419420">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+        @X419420
+      </a>
+      <a class="cv-contact" href="https://www.linkedin.com/in/acmetm/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        /in/acmetm
+      </a>
+      <span class="cv-contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Astana, Kazakhstan
+      </span>
     </div>
   </div>
 
-  <script>lucide.createIcons();</script>
+  <div class="cv-body">
+
+    <!-- Left: main content -->
+    <div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Profile</div>
+        <p class="cv-profile">Community builder and growth specialist with 4+ years of hands-on experience in the CIS market. I sit between the project and its people — helping users understand what's being built, and helping teams understand how to treat their audience so they stay loyal to the product. Deep ecosystem knowledge across DeFi, GameFi, and SocialFi, with direct working relationships at Gaianet, Myx.Finance, Animoca Brands, and Binance. Active CIS influencer network (500+ contacts, 500–50K followers). Open to community, BD, partnerships, and growth roles across Web3, AI startups, and Web2 companies.</p>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">CIS Community Ambassador</span> &nbsp;<span class="exp-org">· Gaianet</span></div>
+            <span class="exp-when">2024 — 2025</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Owned end-to-end CIS community operations: moderated Telegram channels, led community calls, handled Q&amp;A, and delivered regular activity reports to the core team</li>
+            <li>Organized recurring poker-format community events drawing 200–600 participants per event with project-funded prize pools</li>
+            <li>Distributed promotional campaigns across CIS Telegram ecosystem to drive regional user acquisition and brand awareness</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">CIS Growth &amp; Influencer Manager</span> &nbsp;<span class="exp-org">· Myx.Finance</span></div>
+            <span class="exp-when">2024 — 2025</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Drove <strong style="color:var(--fg-1)">$50M+</strong> in cumulative trading volume on Myx.Finance perp DEX through targeted CIS influencer outreach and community activation</li>
+            <li>Coordinated with the Myx.Finance team on CIS go-to-market strategy; sourced, briefed, and managed KOL partners for product promotion</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">Web3 Community Events Producer</span> &nbsp;<span class="exp-org">· Independent</span></div>
+            <span class="exp-when">2023 — 2025</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Produced and hosted poker-format engagement events for 10+ Web3 projects (Jumper Exchange, Succinct, and others), drawing 200–600 participants per event with project-funded prize pools</li>
+            <li>Managed full event lifecycle: concept, project-side coordination, participant acquisition, and post-event reporting</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">Founder — Web3 Growth Studio</span> &nbsp;<span class="exp-org">· acme</span></div>
+            <span class="exp-when">2022 — 2025</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Built and operated a team of 8–10 executing on-chain growth strategies across 10+ EVM-compatible networks</li>
+            <li>Structured a profit-share model covering all operating costs; team generated ~$10,000/month in distributed earnings</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">CIS Ambassador</span> &nbsp;<span class="exp-org">· The Sandbox (Animoca Brands)</span></div>
+            <span class="exp-when">2022</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Promoted The Sandbox platform across CIS communities through events and outreach; maintained direct working relationships with core Sandbox and Mocaverse teams</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">Community Representative (Binance Angel)</span> &nbsp;<span class="exp-org">· Binance</span></div>
+            <span class="exp-when">2020 — 2021</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Represented Binance in CIS-region communities; moderated user chats and submitted structured product feedback to the core team</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">HR Specialist</span> &nbsp;<span class="exp-org">· Omsk Oil Refinery</span></div>
+            <span class="exp-when">2019 — 2020</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Streamlined HR processes using data-driven approaches; managed cross-departmental coordination and employee records</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><span class="exp-role">Team Manager — Dota 2 / CS:GO</span> &nbsp;<span class="exp-org">· VTM Esports</span></div>
+            <span class="exp-when">2015 — 2017</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed competitive team operations: player recruitment, opponent scouting, tournament sourcing; secured a top-2 finish</li>
+          </ul>
+        </div>
+
+      </div><!-- /experience -->
+
+      <div class="cv-section">
+        <div class="cv-section-title">Education</div>
+        <div class="exp-item" style="padding-top:0;border-bottom:none;">
+          <div class="exp-header">
+            <div><span class="exp-role">Bachelor's in Economics</span></div>
+            <span class="exp-when">2017 — 2020</span>
+          </div>
+          <div style="font-size:14px;color:var(--fg-2);margin-top:4px;">Specialization: Statistics</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: sidebar -->
+    <div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Community</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Community Management</span>
+            <span class="skill-tag">Event Production</span>
+            <span class="skill-tag">Moderation</span>
+            <span class="skill-tag">Onboarding</span>
+            <span class="skill-tag">DAO Coordination</span>
+            <span class="skill-tag">Community Calls</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Growth</div>
+          <div class="skill-tags">
+            <span class="skill-tag">KOL Outreach</span>
+            <span class="skill-tag">CIS Network (500+)</span>
+            <span class="skill-tag">Telegram Growth</span>
+            <span class="skill-tag">Ambassador Programs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">BD</div>
+          <div class="skill-tags">
+            <span class="skill-tag">BD & Partnerships</span>
+            <span class="skill-tag">GTM Support</span>
+            <span class="skill-tag">KOL Management</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Web3</div>
+          <div class="skill-tags">
+            <span class="skill-tag">DeFi</span>
+            <span class="skill-tag">GameFi</span>
+            <span class="skill-tag">SocialFi</span>
+            <span class="skill-tag">Perp DEX</span>
+            <span class="skill-tag">Multi-chain EVM</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Telegram</span>
+            <span class="skill-tag">Discord</span>
+            <span class="skill-tag">Galxe</span>
+            <span class="skill-tag">Snapshot</span>
+            <span class="skill-tag">Google Sheets</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Languages</div>
+        <div class="side-item"><div class="side-label">Russian</div><div class="side-val">Native</div></div>
+        <div class="side-item"><div class="side-label">English</div><div class="side-val">Intermediate (reading &amp; written; spoken developing)</div></div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Ecosystems</div>
+        <div style="font-size:13px;color:var(--fg-2);line-height:1.7;">Animoca Brands · Gaianet · Myx.Finance · Binance · The Sandbox · Mocaverse · Jumper Exchange · Succinct</div>
+      </div>
+
+    </div>
+
+  </div><!-- /cv-body -->
+
+</div><!-- /page -->
+
 </body>
 </html>
