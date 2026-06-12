@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>acme — Community & Growth</title>
+  <title>Timur Mirassov — Community & Growth · acme</title>
+  <meta name="description" content="Community & Growth Manager — CIS Regional Specialist. $200M+ referred trading volume, 250+ KOL network. Web3 · AI · Web2.">
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%230D1117'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%233B82F6'>acme</text></svg>">
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
@@ -16,6 +18,7 @@ section{scroll-margin-top:80px;}
 .eyebrow{font-family:var(--font-display);font-size:var(--t-micro);font-weight:600;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--accent);}
 .section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;}
 .section-head h2{margin:0;font-family:var(--font-display);font-size:var(--t-h2);font-weight:700;letter-spacing:var(--ls-snug);}
+/* Nav */
 .nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.78);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .brand{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-0.02em;}
@@ -26,6 +29,7 @@ section{scroll-margin-top:80px;}
 .nav-menu a.nav-cta{font-size:14px;font-weight:600;color:#fff;background:var(--accent);border-radius:8px;padding:8px 16px;transition:background var(--dur) var(--ease);}
 .nav-menu a.nav-cta:hover{background:var(--accent-hover);}
 @media(max-width:640px){.nav-menu a:not(.nav-cta){display:none;}}
+/* Hero */
 .hero{position:relative;padding:100px 0 72px;overflow:hidden;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.35;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 30% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 30% 30%,#000 0%,transparent 75%);pointer-events:none;}
 .hero-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:48px;}
@@ -37,21 +41,38 @@ section{scroll-margin-top:80px;}
 .hero .lead{margin:24px 0 0;font-size:var(--t-lead);color:var(--fg-2);line-height:1.6;max-width:54ch;}
 .hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;}
 @media(max-width:780px){.hero{padding:80px 0 56px;}.hero-inner{flex-direction:column-reverse;align-items:flex-start;gap:32px;}.hero-photo{width:120px;height:120px;}.hero h1{font-size:44px;}}
+/* Buttons */
 .btn{font-family:var(--font-sans);font-size:15px;font-weight:600;border-radius:10px;padding:12px 22px;border:1px solid transparent;cursor:pointer;transition:all var(--dur) var(--ease);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
 .btn-primary{background:var(--accent);color:#fff;}
 .btn-primary:hover{background:var(--accent-hover);}
 .btn-secondary{background:var(--surface-1);color:var(--fg-1);border-color:var(--border);}
 .btn-secondary:hover{background:var(--surface-2);border-color:var(--border-strong);}
+/* About */
 .about{padding:24px 0 56px;}
 .about-text{margin:0;font-size:24px;font-weight:500;line-height:1.55;color:var(--fg-1);max-width:60ch;letter-spacing:-0.01em;}
 .about-text .hl{color:var(--accent);}
 .about-now{margin:28px 0 0;font-size:14px;color:var(--fg-3);display:flex;align-items:center;gap:10px;}
 .now-tag{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r-pill);padding:3px 10px;}
+/* Quote */
 .quote-section{padding:24px 0 40px;}
 .pull-quote{margin:0;padding:4px 0 4px 28px;border-left:3px solid var(--accent);font-family:var(--font-display);font-size:30px;font-weight:500;line-height:1.35;letter-spacing:-0.01em;color:var(--fg-1);max-width:24ch;}
 @media(max-width:700px){.pull-quote{font-size:23px;padding-left:20px;}}
+/* Logos */
+.logos{padding:16px 0 40px;}
+.logos .eyebrow{display:block;text-align:center;margin-bottom:22px;color:var(--fg-3);}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:logo-scroll 32s linear infinite;}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+@keyframes logo-scroll{to{transform:translateX(-50%);}}
+.logo-pill{flex:none;font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--fg-2);background:var(--surface-1);border:1px solid var(--border);border-radius:var(--r-pill);padding:11px 24px;white-space:nowrap;margin-right:0;animation:logo-float 4s ease-in-out infinite;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);}
+.logo-pill:hover{color:var(--fg-1);border-color:var(--border-strong);}
+.logo-pill:nth-child(odd){animation-delay:-2s;}
+.logo-pill:nth-child(3n){animation-delay:-1s;}
+@keyframes logo-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+@media(prefers-reduced-motion:reduce){.marquee-track,.logo-pill{animation:none;}}
+/* Highlights */
 .highlights{padding:64px 0;}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .stat-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:10px;transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease);}
 .stat-card:hover{border-color:var(--border-strong);background:var(--surface-2);}
 .stat-card .num{font-family:var(--font-display);font-size:42px;font-weight:700;letter-spacing:-0.02em;line-height:1;font-variant-numeric:tabular-nums;}
@@ -59,6 +80,7 @@ section{scroll-margin-top:80px;}
 .stat-card .desc{font-size:14px;color:var(--fg-2);line-height:1.5;}
 @media(max-width:860px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:480px){.stat-grid{grid-template-columns:1fr;}}
+/* Experience */
 .experience{padding:64px 0;}
 .exp-list{display:flex;flex-direction:column;}
 .exp-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid var(--border);transition:border-color var(--dur) var(--ease);}
@@ -69,10 +91,12 @@ section{scroll-margin-top:80px;}
 .exp-row .exp-note{font-size:14px;color:var(--fg-2);line-height:1.5;margin-top:4px;}
 .exp-row .when{font-size:14px;color:var(--fg-3);font-variant-numeric:tabular-nums;white-space:nowrap;flex:none;}
 @media(max-width:560px){.exp-row{flex-direction:column;gap:6px;align-items:flex-start;}}
+/* Skills */
 .skills{padding:64px 0;}
 .skill-cloud{display:flex;flex-wrap:wrap;gap:12px;}
 .skill{font-size:15px;font-weight:500;color:var(--fg-1);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-pill);padding:9px 18px;cursor:default;transition:all var(--dur) var(--ease);}
 .skill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-subtle);}
+/* Contact */
 .contact{padding:80px 0 120px;}
 .contact-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--r-lg);padding:48px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;}
 .contact-card h2{margin:0;font-family:var(--font-display);font-size:40px;font-weight:700;letter-spacing:-0.02em;}
@@ -85,11 +109,14 @@ section{scroll-margin-top:80px;}
 .channel .ch-label{font-size:14px;color:var(--fg-3);}
 .channel .ch-value{font-size:15px;font-weight:600;color:var(--fg-1);margin-left:auto;}
 @media(max-width:640px){.contact-card{padding:32px 24px;}.contact-card h2{font-size:30px;}.channel-grid{grid-template-columns:1fr;}.channel .ch-value{margin-left:0;}}
+/* Footer */
 .footer{border-top:1px solid var(--border);padding:28px 0;}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--fg-3);}
   </style>
 </head>
 <body>
+
+<!-- Nav -->
 <nav class="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">acme<span class="dot">.</span></a>
@@ -101,6 +128,8 @@ section{scroll-margin-top:80px;}
     </div>
   </div>
 </nav>
+
+<!-- Hero -->
 <header class="hero" id="top">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="wrap hero-inner">
@@ -118,36 +147,82 @@ section{scroll-margin-top:80px;}
     </div>
   </div>
 </header>
+
+<!-- About -->
 <section class="about wrap" id="about">
   <p class="about-text">I sit between the project and its people. I help users understand what you're building — and help you understand how to treat your audience so they stay loyal to the product.</p>
-  <p class="about-text" style="margin-top:20px">I know influencers from both sides: how they evaluate a product, and what pulls their specific audience in. That's part of how <span class="hl">$200M+</span> in referred trading volume gets driven per product.</p>
-  <p class="about-now"><span class="now-tag">Now</span> Currently deep in AI tools and products.</p>
+  <p class="about-text" style="margin-top:20px">I know influencers from both sides: how they evaluate a product, and what pulls their specific audience in. That's part of how <span class="hl">$200M+</span> in referred trading volume gets driven.</p>
+  <p class="about-now"><span class="now-tag">Now</span> Deep in AI tools and products.</p>
 </section>
+
+<!-- Quote -->
 <section class="quote-section wrap">
   <blockquote class="pull-quote">Community deserves the same budget line as salaries. Everything else is just marketing.</blockquote>
 </section>
-<section class="highlights wrap" id="highlights">
-  <div class="section-head"><span class="eyebrow">Highlights</span><h2>Numbers that matter</h2></div>
-  <div class="stat-grid">
-    <div class="stat-card"><span class="num">$200M+</span><span class="desc">Referred trading volume per product (Myx.Finance)</span></div>
-    <div class="stat-card"><span class="num">10+</span><span class="desc">Web3 projects — events produced</span></div>
-    <div class="stat-card"><span class="num">1200</span><span class="desc">Max participants per event</span></div>
-    <div class="stat-card"><span class="num">250+</span><span class="desc">CIS influencer network</span></div>
+
+<!-- Logos -->
+<section class="logos wrap" aria-label="Projects I worked with">
+  <span class="eyebrow">Worked with</span>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="logo-pill">Binance</span>
+      <span class="logo-pill">Animoca Brands</span>
+      <span class="logo-pill">The Sandbox</span>
+      <span class="logo-pill">MYX Finance</span>
+      <span class="logo-pill">GaiaNet</span>
+      <span class="logo-pill">Jumper Exchange</span>
+      <span class="logo-pill">Succinct</span>
+      <span class="logo-pill">Mocaverse</span>
+      <span class="logo-pill" aria-hidden="true">Binance</span>
+      <span class="logo-pill" aria-hidden="true">Animoca Brands</span>
+      <span class="logo-pill" aria-hidden="true">The Sandbox</span>
+      <span class="logo-pill" aria-hidden="true">MYX Finance</span>
+      <span class="logo-pill" aria-hidden="true">GaiaNet</span>
+      <span class="logo-pill" aria-hidden="true">Jumper Exchange</span>
+      <span class="logo-pill" aria-hidden="true">Succinct</span>
+      <span class="logo-pill" aria-hidden="true">Mocaverse</span>
+    </div>
   </div>
 </section>
+
+<!-- Highlights -->
+<section class="highlights wrap" id="highlights">
+  <div class="section-head">
+    <span class="eyebrow">Highlights</span>
+    <h2>Numbers that matter</h2>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><span class="num">$200M+</span><span class="desc">Referred trading volume (MYX Finance)</span></div>
+    <div class="stat-card"><span class="num">250+</span><span class="desc">CIS influencer network</span></div>
+    <div class="stat-card"><span class="num">200K+</span><span class="desc">Discord ecosystem served (The Sandbox)</span></div>
+    <div class="stat-card"><span class="num">8,000</span><span class="desc">Discord community run end-to-end (GaiaNet)</span></div>
+    <div class="stat-card"><span class="num">10+</span><span class="desc">Web3 projects — events produced</span></div>
+    <div class="stat-card"><span class="num">1,200</span><span class="desc">Max participants per event</span></div>
+  </div>
+</section>
+
+<!-- Experience -->
 <section class="experience wrap" id="experience">
-  <div class="section-head"><span class="eyebrow">Experience</span><h2>Four years building communities across Web3, AI, and tech</h2></div>
+  <div class="section-head">
+    <span class="eyebrow">Experience</span>
+    <h2>Five years building communities across Web3, AI, and tech</h2>
+  </div>
   <div class="exp-list">
-    <div class="exp-row"><div class="exp-main"><span class="role">CIS Community Ambassador</span><span class="org">Gaianet</span><span class="exp-note">Owned the full CIS community loop — from onboarding to weekly reporting</span></div><span class="when">2024 — 2025</span></div>
+    <div class="exp-row"><div class="exp-main"><span class="role">CIS Community Ambassador</span><span class="org">Gaianet</span><span class="exp-note">Ran an 8,000-member Discord end-to-end — onboarding, calls, weekly reporting</span></div><span class="when">2024 — 2025</span></div>
     <div class="exp-row"><div class="exp-main"><span class="role">CIS Growth Manager</span><span class="org">Myx.Finance</span><span class="exp-note">CIS influencer outreach that moved real volume</span></div><span class="when">2024 — 2025</span></div>
     <div class="exp-row"><div class="exp-main"><span class="role">Events Producer</span><span class="org">Independent</span><span class="exp-note">Brought 200–1200 people to a poker table for 10+ projects</span></div><span class="when">2023 — 2025</span></div>
     <div class="exp-row"><div class="exp-main"><span class="role">Founder</span><span class="org">Acme Growth Studio</span><span class="exp-note">Built a team, covered costs, kept the profit flowing</span></div><span class="when">2022 — 2024</span></div>
-    <div class="exp-row"><div class="exp-main"><span class="role">CIS Ambassador</span><span class="org">The Sandbox (Animoca Brands)</span><span class="exp-note">CIS voice for one of the biggest GameFi ecosystems</span></div><span class="when">2022</span></div>
+    <div class="exp-row"><div class="exp-main"><span class="role">CIS Ambassador</span><span class="org">The Sandbox (Animoca Brands)</span><span class="exp-note">CIS voice for a 200,000+ member GameFi ecosystem</span></div><span class="when">2022</span></div>
     <div class="exp-row"><div class="exp-main"><span class="role">Binance Angel</span><span class="org">Binance</span><span class="exp-note">First community rep experience — learned the fundamentals</span></div><span class="when">2020 — 2021</span></div>
   </div>
 </section>
+
+<!-- Skills -->
 <section class="skills wrap" id="skills">
-  <div class="section-head"><span class="eyebrow">What I do</span><h2>Skills &amp; focus areas</h2></div>
+  <div class="section-head">
+    <span class="eyebrow">What I do</span>
+    <h2>Skills &amp; focus areas</h2>
+  </div>
   <div class="skill-cloud">
     <span class="skill">Community Management</span>
     <span class="skill">BD &amp; Partnerships</span>
@@ -162,26 +237,45 @@ section{scroll-margin-top:80px;}
     <span class="skill">Perp DEX</span>
   </div>
 </section>
+
+<!-- Contact -->
 <section class="contact wrap" id="contact">
   <div class="contact-card">
     <span class="eyebrow">Contact</span>
     <h2>Let's talk.</h2>
     <p>If your community feels like an afterthought, let's fix that. I work best with teams that actually believe in what they're building — Web3, AI, or Web2.</p>
     <div class="channel-grid">
-      <a class="channel" href="https://t.me/acmeacme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg><span class="ch-label">Telegram</span><span class="ch-value">@acmeacme</span></a>
-      <a class="channel" href="https://x.com/X419420"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg><span class="ch-label">Twitter / X</span><span class="ch-value">@X419420</span></a>
-      <a class="channel" href="https://www.linkedin.com/in/acmetm/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg><span class="ch-label">LinkedIn</span><span class="ch-value">/in/acmetm</span></a>
-      <a class="channel" href="mailto:acmetm@icloud.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span class="ch-label">Email</span><span class="ch-value">acmetm@icloud.com</span></a>
-      <div class="channel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span class="ch-label">Location</span><span class="ch-value">Astana, Kazakhstan</span></div>
+      <a class="channel" href="https://t.me/acmeacme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <span class="ch-label">Telegram</span><span class="ch-value">@acmeacme</span>
+      </a>
+      <a class="channel" href="https://x.com/X419420">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+        <span class="ch-label">Twitter / X</span><span class="ch-value">@X419420</span>
+      </a>
+      <a class="channel" href="https://www.linkedin.com/in/acmetm/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="ch-label">LinkedIn</span><span class="ch-value">/in/acmetm</span>
+      </a>
+      <a class="channel" href="mailto:acmetm@icloud.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span class="ch-label">Email</span><span class="ch-value">acmetm@icloud.com</span>
+      </a>
+      <div class="channel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span class="ch-label">Location</span><span class="ch-value">Astana, Kazakhstan</span>
+      </div>
     </div>
     <a href="https://t.me/acmeacme" class="btn btn-primary">Message on Telegram →</a>
   </div>
 </section>
+
 <footer class="footer">
   <div class="wrap footer-inner">
     <span>© 2026 Timur Mirassov · acme</span>
     <span>Community &amp; Growth · CIS</span>
   </div>
 </footer>
+
 </body>
 </html>
